@@ -1,6 +1,8 @@
 {
     "title": "Qiq",
     "content": [
+        {"3.x": "https://raw.githubusercontent.com/suzumaze/qiq/3.x_ja/docs/ja/_bookdown.json"},
+        {"2.x": "https://raw.githubusercontent.com/suzumaze/qiq/2.x_ja/docs/ja/_bookdown.json"},
         {"1.x": "https://raw.githubusercontent.com/suzumaze/qiq/docs_ja/docs-ja/_bookdown.json"}
     ],
     "target": "../../",

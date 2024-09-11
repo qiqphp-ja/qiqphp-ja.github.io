@@ -1,27 +1,38 @@
-## インストール方法
+## インストール
 
-[Composer](https://getcomposer.org)でQiqをインストールした後に
+[Composer](https://getcomposer.org) を通じて _Qiq_ をインストールした後...
 
 ```
-composer require qiq/qiq ^1.0
+composer require qiq/qiq ^3.0
 ```
 
-[ここ](/1.x/intro.html)から始められます。
+...は[ここ](/3.x/intro.html)から始められます。
 
-Githubのリポジトリは[qiqphp/qiq](https://github.com/qiqphp/qiq) にあります。
+Githubリポジトリは[qiqphp/qiq](https://github.com/qiqphp/qiq) にあります。
 
 ## なぜQiqを使うのか？
 
-Qiqは、ネイティブなPHPテンプレートを好む開発者のためのものですが、冗長性は低くなっています。パーシャル、レイアウト、セクション、そしてタグやフォームのための幅広いHTMLヘルパーを提供し、明示的かつ簡潔なエスケープが可能です。
+Qiqは、ネイティブPHPテンプレートを好むが、より簡潔さを求める開発者向けです。
+以下を提供します：
 
-Qiqは、デザイナーやコンテンツ作成者に対してテンプレートを何らかの方法で「保護」しなければならないようなシステムには向いていません。そのような場合は、[Handlebars](https://pecl.php.net/package/handlebars) 、[Mustache](https://pecl.php.net/package/mustache) 、または[Twig](https://twig.symfony.com/) のようなものを使用してください。
+- ネイティブの`<?php ?>`**と**`{{ qiq }}`構文
+- 簡潔で明示的、かつコンテキスト固有のエスケープ
+- ビュー、[レイアウト](./3.x/layouts.html)、[パーシャル](./3.x/partials.html)
+- [ブロック](./3.x/blocks.html)と[継承](./3.x/inheritance.html)
+- 豊富で拡張可能な[HTMLヘルパー](./3.x/helpers/overview.html)
+- 実装が簡単な[静的解析](./3.x/static-analysis.html)
+- 完全なドキュメントとユニットテスト
 
+Qiqは、デザイナーやコンテンツ作成者に対してテンプレートを何らかの方法で「保護」する必要があるシステムには向いていません。そのような場合は、
+[Handlebars](https://pecl.php.net/package/handlebars)、
+[Mustache](https://pecl.php.net/package/mustache)、
+または[Twig](https://twig.symfony.com/)のようなものを使用してください。
 
-## Qiqテンプレートとは何ですか？
+## Qiqテンプレートとは？
 
-Qiqは古きよきPHPであり、必要なときにだけ、軽くシンタックスシュガーをまぶします。
+Qiqは通常のPHPで、必要に応じて軽いシンタックスシュガーを加えたものです。
 
-たとえば、PHPでエスケープを行うには、次のようにします。
+例えば、通常のPHPでのエスケープは次のようになります：
 
 ```
 <?php echo htmlspecialchars(
@@ -31,45 +42,90 @@ Qiqは古きよきPHPであり、必要なときにだけ、軽くシンタッ�
 ) ?>
 ```
 
-これは、HTMLのエスケープのためのQiqヘルパーを使用するのと同じことです。
+これは、HTMLエスケープ用のQiqヘルパーを使用した同じものです：
 
 ```
 <?= $this->h($var) ?>
 ```
 
-最後に、Qiqのシンタックスシュガーと同じです。
+最後に、これはQiqのシンタックスシュガーを使用した同じものです：
 
 ```
 {{h $var }}
 ```
 
-同じテンプレートの中で、常にプレーンなPHPとQiqを混在させることができます。例えば
+同じテンプレート内で通常のPHPとQiqを常に混在させることができます。例えば：
 
 ```
 <?php $var = random_int(1, 99) ?>
 {{h $var }}
 ```
 
-実際、認識されないQiqコードはPHPとして扱われます。例えば、以下のようなQiqコードは
+実際、認識されないQiqコードはPHPとして扱われます。例えば、次のQiqコードは...
 
 ```qiq
-{{ $title = "Prefix: " . $this->title . " (Suffix)" }}
+{{ $title = "Prefix: " . $title . " (Suffix)" }}
 <title>{{h $title}}</title>
 ```
 
-Qiqヘルパーを使った次のPHPコードと同等です。
+...このPHPコードとQiqヘルパーと同等です：
 
 ```html+php
-<?php $title = "Prefix: " . $this->title . " (Suffix)" ?>
+<?php $title = "Prefix: " . $title . " (Suffix)" ?>
 <title><?= $this->h($title) ?></title>
 ```
+これにより、既存のPHPテンプレートでQiqを簡単に使用でき、必要に応じてPHP構文から[Qiq構文](/3.x/syntax.html)への円滑な移行が可能になります。
 
-これにより、既存のPHPテンプレートでQiqを簡単に使用でき、必要に応じてPHP構文から[Qiq構文](/1.x/syntax.html)にスムーズに移行することができます。
+## Qiqヘルパーとは？
 
-## なぜ明示的なエスケープを行うのか？
+Qiqヘルパーは単に_Helper_オブジェクトのメソッドです。例えば、HTML フォーム要素の`<select>`を追加するには、Qiqでヘルパーを使用して生成できます...
 
-Qiqは自動的なエスケープを提供しません。設計上、`{{ ... }}`タグは出力を生成**しません**。すべての出力は、開始タグの後の最初の文字で示される特定のコンテキストで明示的にエスケープされる必要があります。
+```php
+{{= select (
+    id: 'country-select',
+    name: 'Country',
+    value: 'usa',
+    placeholder: 'Please pick a country',
+    default: 'usa',
+    options: [
+        'usa' => 'United States',
+        'can' => 'Canada',
+        'mex' => 'Mexico',
+    ],
+) }}
+```
 
-例えば、`{{h ... }}`は HTML 用にエスケープされたものを出力しますが、`{{j ... }}`はJavaScript用にエスケープされたものを出力します。一方、`{{= ... }}`の表記は、エスケープを全くしない生の出力を表します。
+..または通常のPHPで
 
-これは、Qiqの意図的な設計上の選択です。自動エスケープは、どのような文脈でエスケープすべきかを忘れやすくします。文脈を明示的にマークすることは、自分が何をしているかを常に考えなければならないことを意味し、セキュリティに関して言えば、それは良いことです。
+```
+<?= $this->select (
+    id: 'country-select',
+    name: 'Country',
+    value: 'usa',
+    placeholder: 'Please pick a country',
+    default: 'usa',
+    options: [
+        'usa' => 'United States',
+        'can' => 'Canada',
+        'mex' => 'Mexico',
+    ],
+) ?>
+```
+
+[一般的なHTMLヘルパー](./3.x/helpers/general.html)、[フォームヘルパー](./3.x/helpers/forms.html)についてさらに詳しく読むか、[カスタムヘルパー](./3.x/helpers/custom.html)の作成方法を学んでください。
+
+
+## なぜ明示的なエスケープなのか？
+
+Qiqは自動エスケープを提供しません。設計上、`{{ ... }}`タグは出力を**生成しません**。すべての出力は、特定のコンテキストに対して明示的にエスケープする必要があり、開始タグの後の最初の文字で示されます：
+
+- `{{h ... }}` はHTML コンテンツ用にエスケープします
+- `{{a ... }}` はHTML 属性用にエスケープします
+- `{{u ... }}` はURL 用にエスケープします
+- `{{c ... }}` はCSS 用にエスケープします
+- `{{j ... }}` はJavaScript 用にエスケープします
+- `{{= ... }}` は生の、エスケープされていない出力です
+
+これはQiqの意図的な設計選択です。自動エスケープを使用すると、どのコンテキストでエスケープすべきかを忘れやすくなります。コンテキストを明示的にマークすることで、常に何をしているかを考える必要があります。セキュリティに関しては、これは良いことです。
+
+もっと知りたいですか？[ここ](/3.x/intro.html)から始めましょう！

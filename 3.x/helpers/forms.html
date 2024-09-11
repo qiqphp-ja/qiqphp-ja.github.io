@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="HandheldFriendly" content="True"/>
+<title>フォームヘルパー</title>
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/journal/bootstrap.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-prism.css" />
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-linenumbers.css" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body data-spy="scroll" data-target="#sideNav" data-offset="50" class="bbt-theme-journal">
+<div class="page-wrapper">
+    <header>
+    
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="box-header container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#js-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                            <a class="navbar-brand" href="/">
+                    <img alt="logo" src="/qiq.png" title="Home">
+                </a>
+                    </div>
+
+        <div class="box-header-inner">
+            <form class="form-search navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text"
+                           placeholder="Search"
+                           class="js-search-input form-control"
+                           data-roothref="/">
+
+                    <div class="js-search-results"></div>
+                </div>
+            </form>
+
+            <div class="language-link">
+                <ul>
+                    <li>
+                        <a href="https://qiqphp.com/3.x/helpers/forms.html">En</a>
+                    </li>
+                    <li>
+                        <a>Ja</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            
+    
+    <ul class="nav navbar-nav">
+                        <li>
+    <a href="/3.x/">3.x</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/3.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/syntax.html">テンプレート構文</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/catalog.html">テンプレートファイルカタログ</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/blocks.html">ブロック</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/inheritance.html">継承</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/3.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/3.x/compiler.html">コンパイラ</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/static-analysis.html">静的解析</a>
+
+    </li>
+                        <li>
+    <a href="/3.x/upgrading.html">アップグレード</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/2.x/">2.x</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/2.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/syntax.html">テンプレート構文</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/catalog.html">テンプレートファイルカタログ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/blocks.html">ブロック</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/inheritance.html">継承</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/2.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/2.x/compiler.html">コンパイラ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/static-analysis.html">静的解析</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/upgrading.html">アップグレード</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/">1.x Doc</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/syntax.html">テンプレートの構文</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/locator.html">テンプレートロケーター</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/sections.html">セクション</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/compiler.html">コンパイラ</a>
+
+    </li>
+            </ul>
+
+    </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+</header>
+<div class="container">
+    <ol class="breadcrumb">
+                        <li><a href="/">Qiq</a></li>
+                                <li><a href="/3.x/">3.x</a></li>
+                                <li><a href="/3.x/helpers/">ヘルパー</a></li>
+                                <li class="active">フォームヘルパー</li>
+            </ol>
+    <div class="row">
+
+                <div class="col-md-3">
+            <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
+    <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
+                                <li>
+                <a href="#1-9-3" title="&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x30D8;&#x30EB;&#x30D1;&#x30FC;">フォームヘルパー</a>
+            </li>
+                                <li>
+                <a href="#1-9-3-1" title="Form&#x20;Tag">Form Tag</a>
+            </li>
+                                <li>
+                <a href="#1-9-3-2" title="Input&#x20;Tags">Input Tags</a>
+            </li>
+                                                                                                                                                                                                                                                                                                                                <li>
+                <a href="#1-9-3-3" title="Button&#x20;Tags">Button Tags</a>
+            </li>
+                                                                                <li>
+                <a href="#1-9-3-4" title="Label&#x20;Tag">Label Tag</a>
+            </li>
+            </ul>
+</nav>
+        </div>
+                <div class="col-md-9">
+<div id="section-main"><h1 id="1-9-3">1.9.3. フォームヘルパー</h1>
+<p>すべてのヘルパーは適切なエスケープを自動的に適用します。つまり、<code>{{= ... }}</code> を使用して出力できます。<code>{{h ... }}</code> などを使用すると、出力が二重にエスケープされてしまいます。</p>
+<p>また、PHPテンプレートコードでは、<code>$this</code> のメソッドとしてヘルパーを呼び出すこともできます。</p>
+<p>最後に、これらのヘルパーの多くは、HTML タグの属性として名前付きパラメータの可変長リストを受け取ります。つまり、ヘルパーメソッドのパラメータであるかのように、ほぼすべての属性を追加できます。パラメータ名のアンダースコアはダッシュに変換されます。例えば、foo_bar: 'baz' は、ヘルパーの出力で foo-bar="baz" になります。名前付きパラメータとして使用できない属性については、<code>attr</code> 配列パラメータを使用してください。</p>
+<h2 id="1-9-3-1">1.9.3.1. Form Tag</h2>
+<p>フォームを開くには次のようにします:</p>
+<pre><code class="language-qiq">{{= form (
+    action: '/hello',
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'form-id'           // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- デフォルトは method="post" action="" enctype="multipart/form-data" --&gt;
+&lt;form method="post" action="/hello" enctype="multipart/form-data" id="form-id"&gt;
+</code></pre>
+<p>フォームを閉じるには単に <code>&lt;/form&gt;</code> を使用します。</p>
+<h2 id="1-9-3-2">1.9.3.2. Input Tags</h2>
+<h3 id="1-9-3-2-1">1.9.3.2.1. checkboxField</h3>
+<pre><code class="language-qiq">{{= checkboxField (
+    name: 'flag',
+    value: 'foo',
+    checked: true,
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="checkbox" name="flag" value="foo" checked /&gt;
+</code></pre>
+<h3 id="1-9-3-2-2">1.9.3.2.2. checkboxFields</h3>
+<p><code>checkboxFields</code> ヘルパーは、一度に1つ以上のチェックボックスに使用でき、<code>checkboxField</code> ヘルパーよりも機能が豊富です：</p>
+<ul>
+<li>
+<code>options</code> 配列は、フィールドの一部として1つ以上のチェックボックスを指定し、チェック時の各値と対応するラベルを定義します。</li>
+<li>
+<code>options</code> に複数の要素がある場合、フィールド名の末尾に自動的に <code>[]</code>が追加され、配列になります。</li>
+<li>
+<code>value</code> 属性は <code>options</code> と照合され、正しいチェックボックスが自動的に <code>checked</code> になります。</li>
+<li>
+<code>default</code> パラメータがnull以外の場合、チェックボックスがチェックされていない時にその値の隠しフィールドが生成されます。</li>
+</ul>
+<pre><code class="language-qiq">{{= checkboxFields (
+    name: 'flags',
+    value: 'bar',
+    default: '',
+    options: [
+        'foo' =&gt; 'Foo Flag',
+        'bar' =&gt; 'Bar Flag',
+        'baz' =&gt; 'Baz Flag',
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="hidden" name="flags" value="" /&gt;
+&lt;label&gt;&lt;input type="checkbox" name="flags[]" value="foo" /&gt; Foo Flag&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" name="flags[]" value="bar" checked /&gt; Bar Flag&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" name="flags[]" value="baz" /&gt; Baz Flag&lt;/label&gt;
+</code></pre>
+<h3 id="1-9-3-2-3">1.9.3.2.3. colorField</h3>
+<pre><code class="language-qiq">{{= colorField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="color" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-4">1.9.3.2.4. dateField</h3>
+<pre><code class="language-qiq">{{= dateField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="date" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-5">1.9.3.2.5. datetimeField</h3>
+<pre><code class="language-qiq">{{= datetimeField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="datetime" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-6">1.9.3.2.6. datetimeLocalField</h3>
+<pre><code class="language-qiq">{{= datetimeLocalField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="datetime-local" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-7">1.9.3.2.7. emailField</h3>
+<pre><code class="language-qiq">{{= emailField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="email" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-8">1.9.3.2.8. fileField</h3>
+<pre><code class="language-qiq">{{= fileField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="file" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-9">1.9.3.2.9. hiddenField</h3>
+<pre><code class="language-qiq">{{= hiddenField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="hidden" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-10">1.9.3.2.10. inputField</h3>
+<p>必要な <code>type</code> を指定する。</p>
+<pre><code class="language-qiq">{{= inputField (
+    type: 'text',
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="text" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-11">1.9.3.2.11. monthField</h3>
+<pre><code class="language-qiq">{{= monthField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="month" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-12">1.9.3.2.12. numberField</h3>
+<pre><code class="language-qiq">{{= numberField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="number" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-13">1.9.3.2.13. passwordField</h3>
+<pre><code class="language-qiq">{{= passwordField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="password" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-14">1.9.3.2.14. radioField</h3>
+<pre><code class="language-qiq">{{= radioField (
+    name: 'foo',
+    value: 'baz',
+    checked: true,
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="radio" name="foo" value="baz" checked /&gt;
+</code></pre>
+<h3 id="1-9-3-2-15">1.9.3.2.15. radioFields</h3>
+<p><code>radioFields</code> ヘルパーは <code>radioField</code> ヘルパーよりも機能が豊富です：</p>
+<ul>
+<li>
+<code>options</code> パラメータは、フィールドの一部として1つ以上のラジオボタンを指定し、チェック時の値と対応するラベルを定義します。</li>
+<li>
+<code>value</code> パラメータは <code>options</code> と照合され、正しいラジオボタンが自動的に <code>checked</code> になります。</li>
+</ul>
+<pre><code class="language-qiq">{{= radioFields (
+    name: 'foo',
+    value: 'baz',
+    options: [
+        'bar' =&gt; 'Bar Label',
+        'baz' =&gt; 'Baz Label,
+        'dib' =&gt; 'Dib Label',
+    ),
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;label&gt;&lt;input type="radio" name="foo" value="bar" /&gt; Bar Label&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="foo" value="baz" checked /&gt; Baz Label&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="foo" value="dib" /&gt; Dib Label&lt;/label&gt;
+</code></pre>
+<h3 id="1-9-3-2-16">1.9.3.2.16. rangeField</h3>
+<pre><code class="language-qiq">{{= rangeField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="range" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-17">1.9.3.2.17. searchField</h3>
+<pre><code class="language-qiq">{{= searchField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="search" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-18">1.9.3.2.18. select</h3>
+<p><code>options</code> パラメータを使用して <code>&lt;option&gt;</code> タグを記述します。
+<code>placeholder</code> パラメータは、オプションが選択されていない場合のプレースホルダーラベルとして扱われます。<code>default</code> パラメータがnull以外の場合、そのプレースホルダーの値を指定します。
+複数選択を設定するには <code>multiple: true</code> を使用します。これにより、名前にまだ <code>[]</code> が付いていない場合は自動的に追加されます。</p>
+<pre><code class="language-qiq">{{= select (
+    name: 'foo',
+    value: 'dib',
+    placeholder: 'Please pick one',
+    default: '',
+    options: [
+        'bar' =&gt; 'Bar Label',
+        'baz' =&gt; 'Baz Label',
+        'dib' =&gt; 'Dib Label',
+        'zim' =&gt; 'Zim Label',
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;select name="foo"&gt;
+    &lt;option value="" disabled&gt;Please pick one&lt;/option&gt;
+    &lt;option value="bar"&gt;Bar Label&lt;/option&gt;
+    &lt;option value="baz"&gt;Baz Label&lt;/option&gt;
+    &lt;option value="dib" selected&gt;Dib Label&lt;/option&gt;
+    &lt;option value="zim"&gt;Zim Label&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<p>このヘルパーはオプショングループもサポートしています。<code>options</code> 配列の値自体が配列の場合、その要素のキーが <code>&lt;optgroup&gt;</code> のラベルとして使用され、値の配列がそのグループ内のオプションになります。</p>
+<pre><code class="language-qiq">{{= select (
+    name: 'foo',
+    value: 'bar',
+    options: =&gt; [
+        'Group A' =&gt; [
+            'bar' =&gt; 'Bar Label',
+            'baz' =&gt; 'Baz Label',
+        ],
+        'Group B' =&gt; [
+            'dib' =&gt; 'Dib Label',
+            'zim' =&gt; 'Zim Label',
+        ],
+    ],
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;select name="foo"&gt;
+    &lt;optgroup label="Group A"&gt;
+        &lt;option value="bar"&gt;Bar Label&lt;/option&gt;
+        &lt;option value="baz"&gt;Baz Label&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="Group B"&gt;
+        &lt;option value="dib" selected&gt;Dib Label&lt;/option&gt;
+        &lt;option value="zim"&gt;Zim Label&lt;/option&gt;
+    &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre>
+<h3 id="1-9-3-2-19">1.9.3.2.19. telField</h3>
+<pre><code class="language-qiq">{{= telField(
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="tel" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-20">1.9.3.2.20. textField</h3>
+<pre><code class="language-qiq">{{= textField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="text" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-21">1.9.3.2.21. textarea</h3>
+<pre><code class="language-qiq">{{= textarea (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;textarea name="foo"&gt;bar&lt;/textarea&gt;
+</code></pre>
+<h3 id="1-9-3-2-22">1.9.3.2.22. timeField</h3>
+<pre><code class="language-qiq">{{= timeField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="time" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-23">1.9.3.2.23. urlField</h3>
+<pre><code class="language-qiq">{{= urlField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="url" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-2-24">1.9.3.2.24. weekField</h3>
+<pre><code class="language-qiq">{{= weekField (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="week" name="foo" value="bar" /&gt;
+</code></pre>
+<h2 id="1-9-3-3">1.9.3.3. Button Tags</h2>
+<p>各種ボタンタグのヘルパーです。</p>
+<h3 id="1-9-3-3-1">1.9.3.3.1. button</h3>
+<pre><code class="language-qiq">{{= button (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="button" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-3-2">1.9.3.3.2. imageButton</h3>
+<pre><code class="language-qiq">{{= imageButton (
+    name: 'foo',
+    src: '/images/map.png',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="image" name="foo" src="/images/map.png" /&gt;
+</code></pre>
+<h3 id="1-9-3-3-3">1.9.3.3.3. submitButton</h3>
+<pre><code class="language-qiq">{{= submitButton (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="submit" name="foo" value="bar" /&gt;
+</code></pre>
+<h3 id="1-9-3-3-4">1.9.3.3.4. resetButton</h3>
+<pre><code class="language-qiq">{{= resetButton (
+    name: 'foo',
+    value: 'bar',
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;input type="reset" name="foo" value="bar" /&gt;
+</code></pre>
+<h2 id="1-9-3-4">1.9.3.4. Label Tag</h2>
+<p><code>&lt;label&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= label (
+    'Label For Field',      // (string) label text
+    attr: [],               // (array) オプションのキー・バリュー属性:
+    for: 'field'            // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;label for="field"&gt;Label For Field&lt;/label&gt;
+</code></pre>
+</div>        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-6">
+                                            <a href="/3.x/helpers/general.html">Previous</a>                                    </div>
+                <div class="next col-xs-6">
+                                            <a href="/3.x/helpers/custom.html">Next</a>                                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.6.0/lunr.min.js"></script>
+<script src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
+<script src="//tobiju.github.io/share/prismjs/main.js"></script>
+<script src="//tobiju.github.io/share/prismjs/prism.js"></script>
+<script type="text/javascript">
+
+    function Search() {
+        this.store = {};
+        this.index = lunr(function () {
+            this.ref('id');
+            this.field('title', {boost: 10});
+            this.field('content');
+        });
+        this.searchResults = $('.js-search-results').addClass('list-search-results');
+    }
+
+    Search.prototype = {
+        constructor: Search,
+        init: function () {
+            this.createIndex();
+            this.bindEvents();
+        },
+        createIndex: function () {
+            var $this = this,
+                indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
+
+            $.getJSON(indexFilePath, function (data) {
+                $.each(data, function (key, item) {
+                    $this.index.add({
+                        id: item.id,
+                        title: item.title,
+                        content: item.content
+                    });
+
+                    $this.store[item.id] = {
+                        href: item.id,
+                        title: item.title,
+                        content: item.content
+                    }
+                });
+            });
+        },
+        bindEvents: function () {
+            var $this = this;
+
+            $('html')
+                .on('click', function (event) {
+                    $this.close($(this), event);
+                });
+
+            $('.js-search-input, .js-search-results')
+                .on('click', function (event) {
+                    $this.click($(this), event);
+                });
+
+            $('.js-search-input')
+                .on('focus', function (event) {
+                    $this.focus($(this), event);
+                })
+                .on('keyup', function (event) {
+                    $this.search($(this), event)
+                })
+                .on('keydown', function (event) {
+                    if ($('.js-search-results ul').is(':visible')){
+                        $this.navigation($(this), event)
+                    }
+                })
+        },
+        click: function (element, event) {
+            event.stopPropagation();
+        },
+        focus: function (element, event) {
+            this.searchInputWidth = element.css('width');
+            element.animate({
+                'width': 600
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeOut();
+        },
+        close: function (element, event) {
+            var $this = this;
+
+            $('.js-search-results').hide();
+            $('.js-search-input').animate({
+                'width': $this.searchInputWidth
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeIn();
+        },
+        search: function (element, event) {
+            var $this = this;
+
+            if (event.keyCode == 13 || event.keyCode == 38 || event.keyCode == 40) {
+                return;
+            }
+
+            var query = element.val(),
+                results = $this.index.search(query);
+
+            if (!results.length) {
+                $this.searchResults.empty();
+                return;
+            }
+
+            var resultsList = results.reduce(function (ul, result) {
+                var item = $this.store[result.ref];
+                var title = $('<b>').text(item.title);
+
+                var cropText = $this.cropText(item.content, query);
+                if (cropText.length === 0) {
+                    cropText = $('<p>').html(item.content.substring(0, 120) + "...");
+                }
+                var content = content = $('<p>').html(cropText);
+
+                var div = $('<div>')
+                    .append(title)
+                    .append(content);
+                var a = $('<a>').attr('href', item.href)
+                    .append(div);
+                var li = $('<li>')
+                    .append(a);
+                ul.append(li);
+
+                return ul;
+            }, $('<ul>'));
+
+            this.searchResults.html(resultsList);
+
+            $('.js-search-results').show();
+            $(".js-search-results li:first-child").addClass('selected');
+        },
+        cropText: function (content, query) {
+            var cropedText = '',
+                re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
+
+            $.each(content.match(re), function (key, value) {
+                cropedText += '...' + value + '...';
+            });
+
+            return cropedText;
+        },
+        navigation: function (element, event) {
+            var selected = null,
+                listSelector = ".js-search-results ul",
+                listItemSelector = listSelector + " li",
+                selectedListItemSelector = listItemSelector + ".selected",
+                selectedListItemSelectorAnchor = listItemSelector + ".selected a";
+
+            // enter
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                this.close();
+                window.location.replace($(selectedListItemSelectorAnchor).attr('href'));
+            }
+
+            // up
+            if (event.keyCode == 38) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.prev().length == 0) {
+                    selected.siblings().last().addClass("selected");
+                } else {
+                    selected.prev().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListUp(selected);
+            }
+
+            // down
+            if (event.keyCode == 40) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.next().length == 0) {
+                    selected.siblings().first().addClass("selected");
+                } else {
+                    selected.next().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListDown(selected);
+            }
+        },
+        scrollListDown: function (element) {
+            var ul = element.parent(),
+                ulHeight = ul.height(),
+                ulBottomPosition = ulHeight + ul.scrollTop(),
+                liBottomPosition = element.position().top + element.height();
+
+            if (liBottomPosition > ulBottomPosition) {
+                ul.scrollTop(liBottomPosition - ulHeight);
+            }
+
+            if (element.is(':first-child')) {
+                ul.scrollTop(0);
+            }
+        },
+        scrollListUp: function (element) {
+            var ul = element.parent(),
+                ulTopPosition = ul.scrollTop(),
+                liTopPosition = element.position().top;
+
+            if (liTopPosition < ulTopPosition) {
+                ul.scrollTop(element.position().top);
+            }
+
+            if (element.is(':last-child')) {
+                ul.scrollTop(element.position().top - element.height());
+            }
+        }
+    };
+
+    $(function () {
+        var search = new Search();
+        search.init();
+    });
+</script>
+</body>
+</html>

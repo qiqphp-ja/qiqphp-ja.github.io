@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <meta name="HandheldFriendly" content="True"/>
-<title>Qiq</title>
+<title>一般的なヘルパー</title>
     
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/journal/bootstrap.min.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -47,7 +47,7 @@
             <div class="language-link">
                 <ul>
                     <li>
-                        <a href="https://qiqphp.com/">En</a>
+                        <a href="https://qiqphp.com/2.x/helpers/general.html">En</a>
                     </li>
                     <li>
                         <a>Ja</a>
@@ -60,80 +60,6 @@
             
     
     <ul class="nav navbar-nav">
-                        <li>
-    <a href="/3.x/">3.x</a>
-    
-    <ul class="dropdown-menu">
-                        <li>
-    <a href="/3.x/intro.html">入門</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/syntax.html">テンプレート構文</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/data.html">テンプレートデータ</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/catalog.html">テンプレートファイルカタログ</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/partials.html">パーシャル</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/layouts.html">レイアウト</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/blocks.html">ブロック</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/inheritance.html">継承</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/helpers/">ヘルパー</a>
-    
-    <ul class="dropdown-menu">
-                        <li>
-    <a href="/3.x/helpers/overview.html">概要</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/helpers/general.html">一般的なヘルパー</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/helpers/forms.html">フォームヘルパー</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/helpers/custom.html">カスタムヘルパー</a>
-
-    </li>
-            </ul>
-
-    </li>
-                        <li>
-    <a href="/3.x/compiler.html">コンパイラ</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/static-analysis.html">静的解析</a>
-
-    </li>
-                        <li>
-    <a href="/3.x/upgrading.html">アップグレード</a>
-
-    </li>
-            </ul>
-
-    </li>
                         <li>
     <a href="/2.x/">2.x</a>
     
@@ -277,141 +203,269 @@
 </nav>
 </header>
 <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-1">Qiq Templates for PHP 8</h1>
-            <h2 class="display-2">Qiq is easy. Qiq is clean. Qiq is PHP.</h2>
-<!--
-            <p class="lead">
-            </p>
--->
-        </div>
-    </div>
-
+    <ol class="breadcrumb">
+                        <li><a href="/">Qiq</a></li>
+                                <li><a href="/2.x/">2.x</a></li>
+                                <li><a href="/2.x/helpers/">ヘルパー</a></li>
+                                <li class="active">一般的なヘルパー</li>
+            </ol>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <h2>インストール</h2>
-<p><a href="https://getcomposer.org">Composer</a> を通じて <em>Qiq</em> をインストールした後...</p>
-<pre><code>composer require qiq/qiq ^3.0
-</code></pre>
-<p>...は<a href="/3.x/intro.html">ここ</a>から始められます。</p>
-<p>Githubリポジトリは<a href="https://github.com/qiqphp/qiq">qiqphp/qiq</a> にあります。</p>
-<h2>なぜQiqを使うのか？</h2>
-<p>Qiqは、ネイティブPHPテンプレートを好むが、より簡潔さを求める開発者向けです。
-以下を提供します：</p>
-<ul>
-<li>ネイティブの<code>&lt;?php ?&gt;</code><strong>と</strong><code>{{ qiq }}</code>構文</li>
-<li>簡潔で明示的、かつコンテキスト固有のエスケープ</li>
-<li>ビュー、<a href="./3.x/layouts.html">レイアウト</a>、<a href="./3.x/partials.html">パーシャル</a>
-</li>
-<li>
-<a href="./3.x/blocks.html">ブロック</a>と<a href="./3.x/inheritance.html">継承</a>
-</li>
-<li>豊富で拡張可能な<a href="./3.x/helpers/overview.html">HTMLヘルパー</a>
-</li>
-<li>実装が簡単な<a href="./3.x/static-analysis.html">静的解析</a>
-</li>
-<li>完全なドキュメントとユニットテスト</li>
-</ul>
-<p>Qiqは、デザイナーやコンテンツ作成者に対してテンプレートを何らかの方法で「保護」する必要があるシステムには向いていません。そのような場合は、
-<a href="https://pecl.php.net/package/handlebars">Handlebars</a>、
-<a href="https://pecl.php.net/package/mustache">Mustache</a>、
-または<a href="https://twig.symfony.com/">Twig</a>のようなものを使用してください。</p>
-<h2>Qiqテンプレートとは？</h2>
-<p>Qiqは通常のPHPで、必要に応じて軽いシンタックスシュガーを加えたものです。</p>
-<p>例えば、通常のPHPでのエスケープは次のようになります：</p>
-<pre><code>&lt;?php echo htmlspecialchars(
-    $var,
-    ENT_QUOTES|ENT_DISALLOWED,
-    'utf-8'
-) ?&gt;
-</code></pre>
-<p>これは、HTMLエスケープ用のQiqヘルパーを使用した同じものです：</p>
-<pre><code>&lt;?= $this-&gt;h($var) ?&gt;
-</code></pre>
-<p>最後に、これはQiqのシンタックスシュガーを使用した同じものです：</p>
-<pre><code>{{h $var }}
-</code></pre>
-<p>同じテンプレート内で通常のPHPとQiqを常に混在させることができます。例えば：</p>
-<pre><code>&lt;?php $var = random_int(1, 99) ?&gt;
-{{h $var }}
-</code></pre>
-<p>実際、認識されないQiqコードはPHPとして扱われます。例えば、次のQiqコードは...</p>
-<pre><code class="language-qiq">{{ $title = &quot;Prefix: &quot; . $title . &quot; (Suffix)&quot; }}
-&lt;title&gt;{{h $title}}&lt;/title&gt;
-</code></pre>
-<p>...このPHPコードとQiqヘルパーと同等です：</p>
-<pre><code class="language-html+php">&lt;?php $title = &quot;Prefix: &quot; . $title . &quot; (Suffix)&quot; ?&gt;
-&lt;title&gt;&lt;?= $this-&gt;h($title) ?&gt;&lt;/title&gt;
-</code></pre>
-<p>これにより、既存のPHPテンプレートでQiqを簡単に使用でき、必要に応じてPHP構文から<a href="/3.x/syntax.html">Qiq構文</a>への円滑な移行が可能になります。</p>
-<h2>Qiqヘルパーとは？</h2>
-<p>Qiqヘルパーは単に_Helper_オブジェクトのメソッドです。例えば、HTML フォーム要素の<code>&lt;select&gt;</code>を追加するには、Qiqでヘルパーを使用して生成できます...</p>
-<pre><code class="language-php">{{= select (
-    id: 'country-select',
-    name: 'Country',
-    value: 'usa',
-    placeholder: 'Please pick a country',
-    default: 'usa',
-    options: [
-        'usa' =&gt; 'United States',
-        'can' =&gt; 'Canada',
-        'mex' =&gt; 'Mexico',
+
+                <div class="col-md-3">
+            <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
+    <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
+                                <li>
+                <a href="#1-9-2" title="&#x4E00;&#x822C;&#x7684;&#x306A;&#x30D8;&#x30EB;&#x30D1;&#x30FC;">一般的なヘルパー</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-1" title="anchor">anchor</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-2" title="base">base</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-3" title="dl">dl</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-4" title="image">image</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-5" title="items">items</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-6" title="link">link</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-7" title="linkStylesheet">linkStylesheet</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-8" title="meta">meta</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-9" title="ol">ol</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-10" title="script">script</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-11" title="ul">ul</a>
+            </li>
+            </ul>
+</nav>
+        </div>
+                <div class="col-md-9">
+<div id="section-main"><h1 id="1-9-2">1.9.2. 一般的なヘルパー</h1>
+<p>全てのヘルパーは適切なエスケープを自動的に適用します。これは、<code>{{= ... }}</code> を使って出力できることを意味します。<code>{{h ... }}</code> などを使うと、出力が二重にエスケープされてしまいます。</p>
+<p>PHPテンプレートコードでは、<code>$this</code> のメソッドとしてヘルパーを呼び出すこともできます。</p>
+<p>最後に、これらのヘルパーの多くは、HTMLタグの属性として名前付きパラメータの可変長リストを受け取ります。これは、ヘルパーメソッドのパラメータであるかのように、ほぼすべての属性を追加できることを意味します。パラメータ名のアンダースコアはダッシュに変換されます。例えば、<code>foo_bar: 'baz'</code> は、ヘルパーの出力で <code>foo-bar="baz"</code> になります。名前付きパラメータとして使用できない属性については、<code>attr</code> 配列パラメータを使用してください。</p>
+<p>例：</p>
+<pre><code class="language-qiq">{{= anchor (
+    'http://qiqphp.com',
+    'Qiq Project',
+    attr: [                 // (array) オプションのキー・バリュー属性
+        'xml:lang' =&gt; 'en',
     ],
+    id: 'qiq-link',         // (...mixed) オプションの名前付きパラメータ属性
 ) }}
 </code></pre>
-<p>..または通常のPHPで</p>
-<pre><code>&lt;?= $this-&gt;select (
-    id: 'country-select',
-    name: 'Country',
-    value: 'usa',
-    placeholder: 'Please pick a country',
-    default: 'usa',
-    options: [
-        'usa' =&gt; 'United States',
-        'can' =&gt; 'Canada',
-        'mex' =&gt; 'Mexico',
-    ],
-) ?&gt;
+<p>このサンプルコードは以下のHTMLを生成します：</p>
+<pre><code class="language-html">&lt;a href="http://qiqphp.com" xml:lang="en" id="qiq-link"&gt;Qiq for PHP&lt;/a&gt;
 </code></pre>
-<p><a href="./3.x/helpers/general.html">一般的なHTMLヘルパー</a>、<a href="./3.x/helpers/forms.html">フォームヘルパー</a>についてさらに詳しく読むか、<a href="./3.x/helpers/custom.html">カスタムヘルパー</a>の作成方法を学んでください。</p>
-<h2>なぜ明示的なエスケープなのか？</h2>
-<p>Qiqは自動エスケープを提供しません。設計上、<code>{{ ... }}</code>タグは出力を<strong>生成しません</strong>。すべての出力は、特定のコンテキストに対して明示的にエスケープする必要があり、開始タグの後の最初の文字で示されます：</p>
-<ul>
-<li>
-<code>{{h ... }}</code> はHTML コンテンツ用にエスケープします</li>
-<li>
-<code>{{a ... }}</code> はHTML 属性用にエスケープします</li>
-<li>
-<code>{{u ... }}</code> はURL 用にエスケープします</li>
-<li>
-<code>{{c ... }}</code> はCSS 用にエスケープします</li>
-<li>
-<code>{{j ... }}</code> はJavaScript 用にエスケープします</li>
-<li>
-<code>{{= ... }}</code> は生の、エスケープされていない出力です</li>
-</ul>
-<p>これはQiqの意図的な設計選択です。自動エスケープを使用すると、どのコンテキストでエスケープすべきかを忘れやすくなります。コンテキストを明示的にマークすることで、常に何をしているかを考える必要があります。セキュリティに関しては、これは良いことです。</p>
-<p>もっと知りたいですか？<a href="/3.x/intro.html">ここ</a>から始めましょう！</p>
-
-        </div>
-        <div class="col-md-2"></div>
+<h2 id="1-9-2-1">1.9.2.1. anchor</h2>
+<p><code>&lt;a&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= anchor (
+    'http://qiqphp.com',    // (string) href
+    'Qiq Project',          // (string) text
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'qiq-link',         // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;a href="http://qiqphp.com" id="qiq-link"&gt;Qiq for PHP&lt;/a&gt;
+</code></pre>
+<h2 id="1-9-2-2">1.9.2.2. base</h2>
+<p><code>&lt;base&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= base (
+    '/base'                 // (string) href
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;base href="/base" /&gt;
+</code></pre>
+<h2 id="1-9-2-3">1.9.2.3. dl</h2>
+<p><code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code> アイテムを持つ <code>&lt;dl&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= dl (
+    [                       // (array) dtキーとdd値
+        'foo' =&gt; 'Foo Def',
+        'bar' =&gt; [
+            'Bar Def A',
+            'Bar Def B',
+            'Bar Def C',
+        ],
+        'baz' =&gt; 'Baz Def',
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'test'              // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;dl id="test"&gt;
+    &lt;dt&gt;foo&lt;/dt&gt;
+        &lt;dd&gt;Foo Def&lt;/dd&gt;
+    &lt;dt&gt;bar&lt;/dt&gt;
+        &lt;dd&gt;Bar Def A&lt;/dd&gt;
+        &lt;dd&gt;Bar Def B&lt;/dd&gt;
+        &lt;dd&gt;Bar Def C&lt;/dd&gt;
+    &lt;dt&gt;baz&lt;/dt&gt;
+        &lt;dd&gt;Baz Def&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<h2 id="1-9-2-4">1.9.2.4. image</h2>
+<p><code>&lt;img&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= image (
+    '/images/hello.jpg',    // (string) 画像の href src
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'image-id'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- altが指定されていない場合、画像hrefのベースネームを使用 --&gt;
+&lt;img src="/images/hello.jpg" alt="hello" id="image-id" /&gt;
+</code></pre>
+<h2 id="1-9-2-5">1.9.2.5. items</h2>
+<p>一連の <code>&lt;li&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= items ([                // (array) list items
+    'foo',
+    'bar',
+    'baz'
+]) }}
+</code></pre>
+<pre><code class="language-html">&lt;li&gt;foo&lt;/li&gt;
+&lt;li&gt;bar&lt;/li&gt;
+&lt;li&gt;baz&lt;/li&gt;
+</code></pre>
+<h2 id="1-9-2-6">1.9.2.6. link</h2>
+<p><code>&lt;link&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= link (
+    rel: 'prev',
+    href: '/path/to/prev',
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'link-id'           // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;link rel="prev" href="/path/to/prev" id="link-id" /&gt;
+</code></pre>
+<h2 id="1-9-2-7">1.9.2.7. linkStylesheet</h2>
+<p><code>&lt;link&gt;</code> スタイルシートタグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= linkStylesheet (
+    '/css/print.css',       // (string) スタイルシートのhref
+    attr: [],               // (array) オプションのキー・バリュー属性
+    media: 'print'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- typeが指定されていない場合、"text/css"を使用 --&gt;
+&lt;!-- mediaが指定されていない場合、"screen"を使用 --&gt;
+&lt;link rel="stylesheet" href="/css/print.css" type="text/css" media="print" /&gt;
+</code></pre>
+<h2 id="1-9-2-8">1.9.2.8. meta</h2>
+<p><code>&lt;meta&gt;</code> タグのためのヘルパー。</p>
+<p>一般的な使用法：</p>
+<pre><code class="language-qiq">{{= meta (
+    attr: [],               // (array) オプションのキー・バリュー属性
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<p><code>charset</code>の場合：</p>
+<pre><code class="language-qiq">{{= meta (
+    charset: 'utf-8'
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;meta charset="utf-8"&gt;
+</code></pre>
+<p><code>http-equiv</code> の場合：</p>
+<pre><code class="language-qiq">{{= meta (
+    http_equiv: 'Location',
+    content: '/redirect/to/here'
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;meta http-equiv="Location" content="/redirect/to/here"&gt;
+</code></pre>
+<p><code>name</code> の場合：</p>
+<pre><code class="language-qiq">{{= meta (
+    name: 'author',
+    content: 'Qiq for PHP'
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;meta name="author" content="Qiq for PHP"&gt;
+</code></pre>
+<h2 id="1-9-2-9">1.9.2.9. ol</h2>
+<p><code>&lt;li&gt;</code> アイテムを持つ <code>&lt;ol&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= ol (
+    [                       // (array) list items
+        'foo',
+        'bar',
+        'baz'
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'foo-list'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;ol id="foo-list"&gt;
+    &lt;li&gt;foo&lt;/li&gt;
+    &lt;li&gt;bar&lt;/li&gt;
+    &lt;li&gt;baz&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h2 id="1-9-2-10">1.9.2.10. script</h2>
+<p><code>&lt;script&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= script (
+    '/js/functions.js',     // (string) src属性
+    attr: [],               // (array) オプションのキー・バリュー属性
+    async: true             // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- typeが指定されていない場合、"text/javascript"を使用 --&gt;
+&lt;script src="/js/functions.js" type="text/javascript" async&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="1-9-2-11">1.9.2.11. ul</h2>
+<p><code>&lt;li&gt;</code> アイテムを持つ <code>&lt;ul&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= ul (
+    [                       // (array) リストアイテム
+        'foo',
+        'bar',
+        'baz'
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'foo-list'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;ul id="foo-list"&gt;
+    &lt;li&gt;foo&lt;/li&gt;
+    &lt;li&gt;bar&lt;/li&gt;
+    &lt;li&gt;baz&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</div>        </div>
     </div>
 </div>
 
 <footer>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-6">
+                                            <a href="/2.x/helpers/overview.html">Previous</a>                                    </div>
+                <div class="next col-xs-6">
+                                            <a href="/2.x/helpers/forms.html">Next</a>                                    </div>
+            </div>
+        </div>
+    </div>
     <div id="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>&copy; 2021-2024, Qiq for PHP</p>
+                    <p>Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.</p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-
 </div>
 <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
