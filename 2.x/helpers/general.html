@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="HandheldFriendly" content="True"/>
+<title>一般的なヘルパー</title>
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/journal/bootstrap.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-prism.css" />
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-linenumbers.css" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body data-spy="scroll" data-target="#sideNav" data-offset="50" class="bbt-theme-journal">
+<div class="page-wrapper">
+    <header>
+    
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="box-header container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#js-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                            <a class="navbar-brand" href="/">
+                    <img alt="logo" src="/qiq.png" title="Home">
+                </a>
+                    </div>
+
+        <div class="box-header-inner">
+            <form class="form-search navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text"
+                           placeholder="Search"
+                           class="js-search-input form-control"
+                           data-roothref="/">
+
+                    <div class="js-search-results"></div>
+                </div>
+            </form>
+
+            <div class="language-link">
+                <ul>
+                    <li>
+                        <a href="https://qiqphp.com/2.x/helpers/general.html">En</a>
+                    </li>
+                    <li>
+                        <a>Ja</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            
+    
+    <ul class="nav navbar-nav">
+                        <li>
+    <a href="/2.x/">2.x</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/2.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/syntax.html">テンプレート構文</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/catalog.html">テンプレートファイルカタログ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/blocks.html">ブロック</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/inheritance.html">継承</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/2.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/2.x/compiler.html">コンパイラ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/static-analysis.html">静的解析</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/upgrading.html">アップグレード</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/">1.x Doc</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/syntax.html">テンプレートの構文</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/locator.html">テンプレートロケーター</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/sections.html">セクション</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/compiler.html">コンパイラ</a>
+
+    </li>
+            </ul>
+
+    </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+</header>
+<div class="container">
+    <ol class="breadcrumb">
+                        <li><a href="/">Qiq</a></li>
+                                <li><a href="/2.x/">2.x</a></li>
+                                <li><a href="/2.x/helpers/">ヘルパー</a></li>
+                                <li class="active">一般的なヘルパー</li>
+            </ol>
+    <div class="row">
+
+                <div class="col-md-3">
+            <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
+    <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
+                                <li>
+                <a href="#1-9-2" title="&#x4E00;&#x822C;&#x7684;&#x306A;&#x30D8;&#x30EB;&#x30D1;&#x30FC;">一般的なヘルパー</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-1" title="anchor">anchor</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-2" title="base">base</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-3" title="dl">dl</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-4" title="image">image</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-5" title="items">items</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-6" title="link">link</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-7" title="linkStylesheet">linkStylesheet</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-8" title="meta">meta</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-9" title="ol">ol</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-10" title="script">script</a>
+            </li>
+                                <li>
+                <a href="#1-9-2-11" title="ul">ul</a>
+            </li>
+            </ul>
+</nav>
+        </div>
+                <div class="col-md-9">
+<div id="section-main"><h1 id="1-9-2">1.9.2. 一般的なヘルパー</h1>
+<p>全てのヘルパーは適切なエスケープを自動的に適用します。これは、<code>{{= ... }}</code> を使って出力できることを意味します。<code>{{h ... }}</code> などを使うと、出力が二重にエスケープされてしまいます。</p>
+<p>PHPテンプレートコードでは、<code>$this</code> のメソッドとしてヘルパーを呼び出すこともできます。</p>
+<p>最後に、これらのヘルパーの多くは、HTMLタグの属性として名前付きパラメータの可変長リストを受け取ります。これは、ヘルパーメソッドのパラメータであるかのように、ほぼすべての属性を追加できることを意味します。パラメータ名のアンダースコアはダッシュに変換されます。例えば、<code>foo_bar: 'baz'</code> は、ヘルパーの出力で <code>foo-bar="baz"</code> になります。名前付きパラメータとして使用できない属性については、<code>attr</code> 配列パラメータを使用してください。</p>
+<p>例：</p>
+<pre><code class="language-qiq">{{= anchor (
+    'http://qiqphp.com',
+    'Qiq Project',
+    attr: [                 // (array) オプションのキー・バリュー属性
+        'xml:lang' =&gt; 'en',
+    ],
+    id: 'qiq-link',         // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<p>このサンプルコードは以下のHTMLを生成します：</p>
+<pre><code class="language-html">&lt;a href="http://qiqphp.com" xml:lang="en" id="qiq-link"&gt;Qiq for PHP&lt;/a&gt;
+</code></pre>
+<h2 id="1-9-2-1">1.9.2.1. anchor</h2>
+<p><code>&lt;a&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= anchor (
+    'http://qiqphp.com',    // (string) href
+    'Qiq Project',          // (string) text
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'qiq-link',         // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;a href="http://qiqphp.com" id="qiq-link"&gt;Qiq for PHP&lt;/a&gt;
+</code></pre>
+<h2 id="1-9-2-2">1.9.2.2. base</h2>
+<p><code>&lt;base&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= base (
+    '/base'                 // (string) href
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;base href="/base" /&gt;
+</code></pre>
+<h2 id="1-9-2-3">1.9.2.3. dl</h2>
+<p><code>&lt;dt&gt;</code>/<code>&lt;dd&gt;</code> アイテムを持つ <code>&lt;dl&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= dl (
+    [                       // (array) dtキーとdd値
+        'foo' =&gt; 'Foo Def',
+        'bar' =&gt; [
+            'Bar Def A',
+            'Bar Def B',
+            'Bar Def C',
+        ],
+        'baz' =&gt; 'Baz Def',
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'test'              // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;dl id="test"&gt;
+    &lt;dt&gt;foo&lt;/dt&gt;
+        &lt;dd&gt;Foo Def&lt;/dd&gt;
+    &lt;dt&gt;bar&lt;/dt&gt;
+        &lt;dd&gt;Bar Def A&lt;/dd&gt;
+        &lt;dd&gt;Bar Def B&lt;/dd&gt;
+        &lt;dd&gt;Bar Def C&lt;/dd&gt;
+    &lt;dt&gt;baz&lt;/dt&gt;
+        &lt;dd&gt;Baz Def&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+<h2 id="1-9-2-4">1.9.2.4. image</h2>
+<p><code>&lt;img&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= image (
+    '/images/hello.jpg',    // (string) 画像の href src
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'image-id'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- altが指定されていない場合、画像hrefのベースネームを使用 --&gt;
+&lt;img src="/images/hello.jpg" alt="hello" id="image-id" /&gt;
+</code></pre>
+<h2 id="1-9-2-5">1.9.2.5. items</h2>
+<p>一連の <code>&lt;li&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= items ([                // (array) list items
+    'foo',
+    'bar',
+    'baz'
+]) }}
+</code></pre>
+<pre><code class="language-html">&lt;li&gt;foo&lt;/li&gt;
+&lt;li&gt;bar&lt;/li&gt;
+&lt;li&gt;baz&lt;/li&gt;
+</code></pre>
+<h2 id="1-9-2-6">1.9.2.6. link</h2>
+<p><code>&lt;link&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= link (
+    rel: 'prev',
+    href: '/path/to/prev',
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'link-id'           // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;link rel="prev" href="/path/to/prev" id="link-id" /&gt;
+</code></pre>
+<h2 id="1-9-2-7">1.9.2.7. linkStylesheet</h2>
+<p><code>&lt;link&gt;</code> スタイルシートタグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= linkStylesheet (
+    '/css/print.css',       // (string) スタイルシートのhref
+    attr: [],               // (array) オプションのキー・バリュー属性
+    media: 'print'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- typeが指定されていない場合、"text/css"を使用 --&gt;
+&lt;!-- mediaが指定されていない場合、"screen"を使用 --&gt;
+&lt;link rel="stylesheet" href="/css/print.css" type="text/css" media="print" /&gt;
+</code></pre>
+<h2 id="1-9-2-8">1.9.2.8. meta</h2>
+<p><code>&lt;meta&gt;</code> タグのためのヘルパー。</p>
+<p>一般的な使用法：</p>
+<pre><code class="language-qiq">{{= meta (
+    attr: [],               // (array) オプションのキー・バリュー属性
+    ...                     // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<p><code>charset</code>の場合：</p>
+<pre><code class="language-qiq">{{= meta (
+    charset: 'utf-8'
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;meta charset="utf-8"&gt;
+</code></pre>
+<p><code>http-equiv</code> の場合：</p>
+<pre><code class="language-qiq">{{= meta (
+    http_equiv: 'Location',
+    content: '/redirect/to/here'
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;meta http-equiv="Location" content="/redirect/to/here"&gt;
+</code></pre>
+<p><code>name</code> の場合：</p>
+<pre><code class="language-qiq">{{= meta (
+    name: 'author',
+    content: 'Qiq for PHP'
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;meta name="author" content="Qiq for PHP"&gt;
+</code></pre>
+<h2 id="1-9-2-9">1.9.2.9. ol</h2>
+<p><code>&lt;li&gt;</code> アイテムを持つ <code>&lt;ol&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= ol (
+    [                       // (array) list items
+        'foo',
+        'bar',
+        'baz'
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'foo-list'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;ol id="foo-list"&gt;
+    &lt;li&gt;foo&lt;/li&gt;
+    &lt;li&gt;bar&lt;/li&gt;
+    &lt;li&gt;baz&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h2 id="1-9-2-10">1.9.2.10. script</h2>
+<p><code>&lt;script&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= script (
+    '/js/functions.js',     // (string) src属性
+    attr: [],               // (array) オプションのキー・バリュー属性
+    async: true             // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;!-- typeが指定されていない場合、"text/javascript"を使用 --&gt;
+&lt;script src="/js/functions.js" type="text/javascript" async&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="1-9-2-11">1.9.2.11. ul</h2>
+<p><code>&lt;li&gt;</code> アイテムを持つ <code>&lt;ul&gt;</code> タグのためのヘルパー。</p>
+<pre><code class="language-qiq">{{= ul (
+    [                       // (array) リストアイテム
+        'foo',
+        'bar',
+        'baz'
+    ],
+    attr: [],               // (array) オプションのキー・バリュー属性
+    id: 'foo-list'          // (...mixed) オプションの名前付きパラメータ属性
+) }}
+</code></pre>
+<pre><code class="language-html">&lt;ul id="foo-list"&gt;
+    &lt;li&gt;foo&lt;/li&gt;
+    &lt;li&gt;bar&lt;/li&gt;
+    &lt;li&gt;baz&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</div>        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-6">
+                                            <a href="/2.x/helpers/overview.html">Previous</a>                                    </div>
+                <div class="next col-xs-6">
+                                            <a href="/2.x/helpers/forms.html">Next</a>                                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.6.0/lunr.min.js"></script>
+<script src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
+<script src="//tobiju.github.io/share/prismjs/main.js"></script>
+<script src="//tobiju.github.io/share/prismjs/prism.js"></script>
+<script type="text/javascript">
+
+    function Search() {
+        this.store = {};
+        this.index = lunr(function () {
+            this.ref('id');
+            this.field('title', {boost: 10});
+            this.field('content');
+        });
+        this.searchResults = $('.js-search-results').addClass('list-search-results');
+    }
+
+    Search.prototype = {
+        constructor: Search,
+        init: function () {
+            this.createIndex();
+            this.bindEvents();
+        },
+        createIndex: function () {
+            var $this = this,
+                indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
+
+            $.getJSON(indexFilePath, function (data) {
+                $.each(data, function (key, item) {
+                    $this.index.add({
+                        id: item.id,
+                        title: item.title,
+                        content: item.content
+                    });
+
+                    $this.store[item.id] = {
+                        href: item.id,
+                        title: item.title,
+                        content: item.content
+                    }
+                });
+            });
+        },
+        bindEvents: function () {
+            var $this = this;
+
+            $('html')
+                .on('click', function (event) {
+                    $this.close($(this), event);
+                });
+
+            $('.js-search-input, .js-search-results')
+                .on('click', function (event) {
+                    $this.click($(this), event);
+                });
+
+            $('.js-search-input')
+                .on('focus', function (event) {
+                    $this.focus($(this), event);
+                })
+                .on('keyup', function (event) {
+                    $this.search($(this), event)
+                })
+                .on('keydown', function (event) {
+                    if ($('.js-search-results ul').is(':visible')){
+                        $this.navigation($(this), event)
+                    }
+                })
+        },
+        click: function (element, event) {
+            event.stopPropagation();
+        },
+        focus: function (element, event) {
+            this.searchInputWidth = element.css('width');
+            element.animate({
+                'width': 600
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeOut();
+        },
+        close: function (element, event) {
+            var $this = this;
+
+            $('.js-search-results').hide();
+            $('.js-search-input').animate({
+                'width': $this.searchInputWidth
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeIn();
+        },
+        search: function (element, event) {
+            var $this = this;
+
+            if (event.keyCode == 13 || event.keyCode == 38 || event.keyCode == 40) {
+                return;
+            }
+
+            var query = element.val(),
+                results = $this.index.search(query);
+
+            if (!results.length) {
+                $this.searchResults.empty();
+                return;
+            }
+
+            var resultsList = results.reduce(function (ul, result) {
+                var item = $this.store[result.ref];
+                var title = $('<b>').text(item.title);
+
+                var cropText = $this.cropText(item.content, query);
+                if (cropText.length === 0) {
+                    cropText = $('<p>').html(item.content.substring(0, 120) + "...");
+                }
+                var content = content = $('<p>').html(cropText);
+
+                var div = $('<div>')
+                    .append(title)
+                    .append(content);
+                var a = $('<a>').attr('href', item.href)
+                    .append(div);
+                var li = $('<li>')
+                    .append(a);
+                ul.append(li);
+
+                return ul;
+            }, $('<ul>'));
+
+            this.searchResults.html(resultsList);
+
+            $('.js-search-results').show();
+            $(".js-search-results li:first-child").addClass('selected');
+        },
+        cropText: function (content, query) {
+            var cropedText = '',
+                re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
+
+            $.each(content.match(re), function (key, value) {
+                cropedText += '...' + value + '...';
+            });
+
+            return cropedText;
+        },
+        navigation: function (element, event) {
+            var selected = null,
+                listSelector = ".js-search-results ul",
+                listItemSelector = listSelector + " li",
+                selectedListItemSelector = listItemSelector + ".selected",
+                selectedListItemSelectorAnchor = listItemSelector + ".selected a";
+
+            // enter
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                this.close();
+                window.location.replace($(selectedListItemSelectorAnchor).attr('href'));
+            }
+
+            // up
+            if (event.keyCode == 38) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.prev().length == 0) {
+                    selected.siblings().last().addClass("selected");
+                } else {
+                    selected.prev().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListUp(selected);
+            }
+
+            // down
+            if (event.keyCode == 40) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.next().length == 0) {
+                    selected.siblings().first().addClass("selected");
+                } else {
+                    selected.next().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListDown(selected);
+            }
+        },
+        scrollListDown: function (element) {
+            var ul = element.parent(),
+                ulHeight = ul.height(),
+                ulBottomPosition = ulHeight + ul.scrollTop(),
+                liBottomPosition = element.position().top + element.height();
+
+            if (liBottomPosition > ulBottomPosition) {
+                ul.scrollTop(liBottomPosition - ulHeight);
+            }
+
+            if (element.is(':first-child')) {
+                ul.scrollTop(0);
+            }
+        },
+        scrollListUp: function (element) {
+            var ul = element.parent(),
+                ulTopPosition = ul.scrollTop(),
+                liTopPosition = element.position().top;
+
+            if (liTopPosition < ulTopPosition) {
+                ul.scrollTop(element.position().top);
+            }
+
+            if (element.is(':last-child')) {
+                ul.scrollTop(element.position().top - element.height());
+            }
+        }
+    };
+
+    $(function () {
+        var search = new Search();
+        search.init();
+    });
+</script>
+</body>
+</html>

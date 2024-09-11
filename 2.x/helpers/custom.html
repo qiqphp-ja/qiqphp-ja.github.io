@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="HandheldFriendly" content="True"/>
+<title>カスタムヘルパー</title>
+    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/journal/bootstrap.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-prism.css" />
+<link rel="stylesheet" href="https://tobiju.github.io/share/prismjs/prism-linenumbers.css" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body data-spy="scroll" data-target="#sideNav" data-offset="50" class="bbt-theme-journal">
+<div class="page-wrapper">
+    <header>
+    
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="box-header container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#js-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                            <a class="navbar-brand" href="/">
+                    <img alt="logo" src="/qiq.png" title="Home">
+                </a>
+                    </div>
+
+        <div class="box-header-inner">
+            <form class="form-search navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text"
+                           placeholder="Search"
+                           class="js-search-input form-control"
+                           data-roothref="/">
+
+                    <div class="js-search-results"></div>
+                </div>
+            </form>
+
+            <div class="language-link">
+                <ul>
+                    <li>
+                        <a href="https://qiqphp.com/2.x/helpers/custom.html">En</a>
+                    </li>
+                    <li>
+                        <a>Ja</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            
+    
+    <ul class="nav navbar-nav">
+                        <li>
+    <a href="/2.x/">2.x</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/2.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/syntax.html">テンプレート構文</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/catalog.html">テンプレートファイルカタログ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/blocks.html">ブロック</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/inheritance.html">継承</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/2.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/2.x/compiler.html">コンパイラ</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/static-analysis.html">静的解析</a>
+
+    </li>
+                        <li>
+    <a href="/2.x/upgrading.html">アップグレード</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/">1.x Doc</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/intro.html">入門</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/syntax.html">テンプレートの構文</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/data.html">テンプレートデータ</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/locator.html">テンプレートロケーター</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/partials.html">パーシャル</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/layouts.html">レイアウト</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/sections.html">セクション</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/">ヘルパー</a>
+    
+    <ul class="dropdown-menu">
+                        <li>
+    <a href="/1.x/helpers/overview.html">概要</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/general.html">一般的なヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/forms.html">フォームヘルパー</a>
+
+    </li>
+                        <li>
+    <a href="/1.x/helpers/custom.html">カスタムヘルパー</a>
+
+    </li>
+            </ul>
+
+    </li>
+                        <li>
+    <a href="/1.x/compiler.html">コンパイラ</a>
+
+    </li>
+            </ul>
+
+    </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+</header>
+<div class="container">
+    <ol class="breadcrumb">
+                        <li><a href="/">Qiq</a></li>
+                                <li><a href="/2.x/">2.x</a></li>
+                                <li><a href="/2.x/helpers/">ヘルパー</a></li>
+                                <li class="active">カスタムヘルパー</li>
+            </ol>
+    <div class="row">
+
+                <div class="col-md-3">
+            <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
+    <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
+                                <li>
+                <a href="#1-9-4" title="&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30D8;&#x30EB;&#x30D1;&#x30FC;">カスタムヘルパー</a>
+            </li>
+                                <li>
+                <a href="#1-9-4-1" title="&#x0A;&lt;em&gt;Helpers&lt;&#x2F;em&gt;&#x20;&#x30AF;&#x30E9;&#x30B9;&#x306E;&#x4F5C;&#x6210;">
+Helpers クラスの作成...</a>
+            </li>
+                                <li>
+                <a href="#1-9-4-2" title="&#x0A;&lt;em&gt;Helpers&lt;&#x2F;em&gt;&#x20;&#x306E;&#x4F7F;&#x7528;">
+Helpers の使用</a>
+            </li>
+                                <li>
+                <a href="#1-9-4-3" title="&#x30D8;&#x30EB;&#x30D1;&#x30FC;&#x30AF;&#x30E9;&#x30B9;">ヘルパークラス</a>
+            </li>
+                                <li>
+                <a href="#1-9-4-4" title="&#x0A;&lt;em&gt;Helpers&lt;&#x2F;em&gt;&#x20;&#x30B3;&#x30F3;&#x30C6;&#x30CA;">
+Helpers コンテナ</a>
+            </li>
+            </ul>
+</nav>
+        </div>
+                <div class="col-md-9">
+<div id="section-main"><h1 id="1-9-4">1.9.4. カスタムヘルパー</h1>
+<p><em>Template</em> オブジェクトにカスタムの <em>Helpers</em> オブジェクトを提供することができます。このカスタム <em>Helpers</em> オブジェクトに、好きなヘルパーメソッドを追加できます。あなたのヘルパーメソッドは、その <em>Template</em> インスタンスによって処理されるテンプレートファイル内で利用可能になります。</p>
+<h2 id="1-9-4-1">1.9.4.1. 
+<em>Helpers</em> クラスの作成</h2>
+<p>最も簡単な方法は、<em>HtmlHelpers</em> を拡張して新しいクラスにメソッドを追加することです。</p>
+<p>例えば、以下のカスタム <em>Helpers</em> クラスは、文字列をROT-13で暗号化し、適切にエスケープするメソッドを追加しています：</p>
+<pre><code class="language-php">&lt;?php
+namespace Project\Template\Helper;
+
+use Qiq\Helper\Html\HtmlHelpers;
+
+class CustomHelpers extends HtmlHelpers
+{
+    public function rot13(string $str) : string
+    {
+        return $this-&gt;h(str_rot13($str));
+    }
+}
+</code></pre>
+<p>あるいは、ベースの <em>Helpers</em> オブジェクトを拡張し、<em>HtmlHelperMethods</em> トレイトを使用することもできます：</p>
+<pre><code class="language-php">&lt;?php
+namespace Project\Template\Helper;
+
+use Qiq\Helper\Html\HtmlHelperMethods;
+use Qiq\Helpers;
+
+class CustomHelpers extends Helpers
+{
+    use HtmlHelperMethods;
+
+    public function rot13(string $str) : string
+    {
+        return $this-&gt;h(str_rot13($str));
+    }
+}
+</code></pre>
+<p>最後に、HTMLを全く使用しない場合は、単に <em>Helpers</em> クラスを拡張するだけで構いません。</p>
+<pre><code class="language-php">&lt;?php
+namespace Project\Template\Helper;
+
+use Qiq\Helpers;
+
+class CustomHelpers extends Helpers
+{
+    public function rot13(string $str) : string
+    {
+        return str_rot13($str);
+    }
+}
+</code></pre>
+<h2 id="1-9-4-2">1.9.4.2. 
+<em>Helpers</em> の使用</h2>
+<p>カスタム <em>Helpers</em> クラスを作成したら、そのインスタンスを使用して <em>Template</em> を作成します：</p>
+<pre><code class="language-php">use Project\Template\Helper\CustomHelpers;
+use Qiq\Template;
+
+$template = Template::new(
+    paths: ...,
+    helpers: new CustomHelpers(),
+);
+</code></pre>
+<p>これで、テンプレートファイル内でカスタムヘルパーメソッドを使用できます。</p>
+<p>プレーンなPHPで使用する場合 ...</p>
+<pre><code class="language-html+php">&lt;?= $this-&gt;rot13('Uryyb Jbeyq!'); ?&gt;
+</code></pre>
+<p>... もしくは、Qiq構文で使用する場合：</p>
+<pre><code class="language-html+php">{{= rot13 ('Uryyb Jbeyq!') }}
+</code></pre>
+<p>どちらの方法でも、出力は "Hello World!" となります。</p>
+<h2 id="1-9-4-3">1.9.4.3. ヘルパークラス</h2>
+<p>必要に応じて、ヘルパーのロジックをクラスに配置し、オートワイヤリングされる <em>Qiq\Container</em>（後述）からそのクラスのインスタンスを <code>$this-&gt;get()</code> を使用して取得することができます。</p>
+<p>例えば、ROT-13のロジックをクラスに配置した場合...</p>
+<pre><code class="language-php">&lt;?php
+namespace Project\Template\Helper;
+
+use Qiq\Helper\Html\Escape;
+
+class Rot13
+{
+    public function __construct(protected Escape $escape)
+    {
+    }
+
+    public function __invoke(string $str): string
+    {
+        return $this-&gt;escape-&gt;h(str_rot13($str));
+    }
+}
+</code></pre>
+<p>... このようにして、カスタム <em>Helpers</em> オブジェクト内からそのクラスのインスタンスを <code>get()</code> で取得し、好きなように使用できます</p>
+<pre><code class="language-php">&lt;?php
+namespace Project\Template\Helper;
+
+use Project\Template\Helper\Rot13;
+use Qiq\Helper\Html\HtmlHelpers;
+
+class CustomHelpers extends HelperHelpers
+{
+    public function rot13(string $str) : string
+    {
+        return $this-&gt;get(Rot13::class)-&gt;__invoke($str);
+    }
+}
+</code></pre>
+<h2 id="1-9-4-4">1.9.4.4. 
+<em>Helpers</em> コンテナ</h2>
+<p><em>Helpers</em> クラスはオートワイヤリングされる <em>Qiq\Container</em> オブジェクトを使用します。カスタムヘルパーメソッド内で、<code>$this-&gt;get()</code> を使用して <em>Qiq\Container</em> からオブジェクトを取得できます。
+<em>Qiq\Container</em> を設定するには、クラスコンストラクタのパラメータ名と値の配列を使用してインスタンス化し、それを使用して Helpers を作成します。例えば、Escape のエンコーディングを UTF-8 以外に変更する場合：</p>
+<pre><code class="language-php">use Project\Template\Helper\CustomHelpers;
+use Qiq\Container;
+use Qiq\Helper\Html\Escape;
+use Qiq\Template;
+
+$container = new Container([
+    Escape::class =&gt; [
+        'encoding' =&gt; 'EUC-JP'
+    ],
+]);
+
+$template = Template::new(
+    paths: ...,
+    helpers: new CustomHelpers($container)
+);
+</code></pre>
+<p><em>Qiq\Container</em> は比較的低機能です。必要に応じて、<em>Qiq\Container</em> を任意の <a href="https://www.php-fig.org/psr/psr-11/">PSR-11</a> <em>ContainerInterface</em> インスタンスに置き換えることができます</p>
+<pre><code class="language-php">use Project\Template\Helper\CustomHelpers;
+use Project\Psr11Container;
+use Qiq\Template;
+
+$psr11container = new Psr11Container();
+
+$template = Template::new(
+    paths: ...,
+    helpers: new CustomHelpers($psr11container)
+);
+</code></pre>
+</div>        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-6">
+                                            <a href="/2.x/helpers/forms.html">Previous</a>                                    </div>
+                <div class="next col-xs-6">
+                                            <a href="/2.x/compiler.html">Next</a>                                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/0.6.0/lunr.min.js"></script>
+<script src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
+<script src="//tobiju.github.io/share/prismjs/main.js"></script>
+<script src="//tobiju.github.io/share/prismjs/prism.js"></script>
+<script type="text/javascript">
+
+    function Search() {
+        this.store = {};
+        this.index = lunr(function () {
+            this.ref('id');
+            this.field('title', {boost: 10});
+            this.field('content');
+        });
+        this.searchResults = $('.js-search-results').addClass('list-search-results');
+    }
+
+    Search.prototype = {
+        constructor: Search,
+        init: function () {
+            this.createIndex();
+            this.bindEvents();
+        },
+        createIndex: function () {
+            var $this = this,
+                indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
+
+            $.getJSON(indexFilePath, function (data) {
+                $.each(data, function (key, item) {
+                    $this.index.add({
+                        id: item.id,
+                        title: item.title,
+                        content: item.content
+                    });
+
+                    $this.store[item.id] = {
+                        href: item.id,
+                        title: item.title,
+                        content: item.content
+                    }
+                });
+            });
+        },
+        bindEvents: function () {
+            var $this = this;
+
+            $('html')
+                .on('click', function (event) {
+                    $this.close($(this), event);
+                });
+
+            $('.js-search-input, .js-search-results')
+                .on('click', function (event) {
+                    $this.click($(this), event);
+                });
+
+            $('.js-search-input')
+                .on('focus', function (event) {
+                    $this.focus($(this), event);
+                })
+                .on('keyup', function (event) {
+                    $this.search($(this), event)
+                })
+                .on('keydown', function (event) {
+                    if ($('.js-search-results ul').is(':visible')){
+                        $this.navigation($(this), event)
+                    }
+                })
+        },
+        click: function (element, event) {
+            event.stopPropagation();
+        },
+        focus: function (element, event) {
+            this.searchInputWidth = element.css('width');
+            element.animate({
+                'width': 600
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeOut();
+        },
+        close: function (element, event) {
+            var $this = this;
+
+            $('.js-search-results').hide();
+            $('.js-search-input').animate({
+                'width': $this.searchInputWidth
+            }, 500);
+            $('#js-navbar-collapse > ul').fadeIn();
+        },
+        search: function (element, event) {
+            var $this = this;
+
+            if (event.keyCode == 13 || event.keyCode == 38 || event.keyCode == 40) {
+                return;
+            }
+
+            var query = element.val(),
+                results = $this.index.search(query);
+
+            if (!results.length) {
+                $this.searchResults.empty();
+                return;
+            }
+
+            var resultsList = results.reduce(function (ul, result) {
+                var item = $this.store[result.ref];
+                var title = $('<b>').text(item.title);
+
+                var cropText = $this.cropText(item.content, query);
+                if (cropText.length === 0) {
+                    cropText = $('<p>').html(item.content.substring(0, 120) + "...");
+                }
+                var content = content = $('<p>').html(cropText);
+
+                var div = $('<div>')
+                    .append(title)
+                    .append(content);
+                var a = $('<a>').attr('href', item.href)
+                    .append(div);
+                var li = $('<li>')
+                    .append(a);
+                ul.append(li);
+
+                return ul;
+            }, $('<ul>'));
+
+            this.searchResults.html(resultsList);
+
+            $('.js-search-results').show();
+            $(".js-search-results li:first-child").addClass('selected');
+        },
+        cropText: function (content, query) {
+            var cropedText = '',
+                re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
+
+            $.each(content.match(re), function (key, value) {
+                cropedText += '...' + value + '...';
+            });
+
+            return cropedText;
+        },
+        navigation: function (element, event) {
+            var selected = null,
+                listSelector = ".js-search-results ul",
+                listItemSelector = listSelector + " li",
+                selectedListItemSelector = listItemSelector + ".selected",
+                selectedListItemSelectorAnchor = listItemSelector + ".selected a";
+
+            // enter
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                this.close();
+                window.location.replace($(selectedListItemSelectorAnchor).attr('href'));
+            }
+
+            // up
+            if (event.keyCode == 38) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.prev().length == 0) {
+                    selected.siblings().last().addClass("selected");
+                } else {
+                    selected.prev().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListUp(selected);
+            }
+
+            // down
+            if (event.keyCode == 40) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.next().length == 0) {
+                    selected.siblings().first().addClass("selected");
+                } else {
+                    selected.next().addClass("selected");
+                }
+
+                selected = $(selectedListItemSelector);
+                this.scrollListDown(selected);
+            }
+        },
+        scrollListDown: function (element) {
+            var ul = element.parent(),
+                ulHeight = ul.height(),
+                ulBottomPosition = ulHeight + ul.scrollTop(),
+                liBottomPosition = element.position().top + element.height();
+
+            if (liBottomPosition > ulBottomPosition) {
+                ul.scrollTop(liBottomPosition - ulHeight);
+            }
+
+            if (element.is(':first-child')) {
+                ul.scrollTop(0);
+            }
+        },
+        scrollListUp: function (element) {
+            var ul = element.parent(),
+                ulTopPosition = ul.scrollTop(),
+                liTopPosition = element.position().top;
+
+            if (liTopPosition < ulTopPosition) {
+                ul.scrollTop(element.position().top);
+            }
+
+            if (element.is(':last-child')) {
+                ul.scrollTop(element.position().top - element.height());
+            }
+        }
+    };
+
+    $(function () {
+        var search = new Search();
+        search.init();
+    });
+</script>
+</body>
+</html>
