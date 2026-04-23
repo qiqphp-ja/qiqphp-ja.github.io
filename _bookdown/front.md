@@ -6,7 +6,7 @@
 composer require qiq/qiq ^1.0
 ```
 
-[ここ](/1.x/intro.html)から始められます。
+<a href="/1.x/intro.html" data-auto-locale-href-en="https://qiqphp.com/3.x/intro.html" data-auto-locale-href-ja="/1.x/intro.html">ここ</a>から始められます。
 
 Githubのリポジトリは[qiqphp/qiq](https://github.com/qiqphp/qiq) にあります。
 

@@ -147,7 +147,7 @@
 <p><a href="https://getcomposer.org">Composer</a>でQiqをインストールした後に</p>
 <pre><code>composer require qiq/qiq ^1.0
 </code></pre>
-<p><a href="/1.x/intro.html">ここ</a>から始められます。</p>
+<p><a href="/1.x/intro.html" data-auto-locale-href-en="https://qiqphp.com/3.x/intro.html" data-auto-locale-href-ja="/1.x/intro.html">ここ</a>から始められます。</p>
 <p>Githubのリポジトリは<a href="https://github.com/qiqphp/qiq">qiqphp/qiq</a> にあります。</p>
 <h2>なぜQiqを使うのか？</h2>
 <p>Qiqは、ネイティブなPHPテンプレートを好む開発者のためのものですが、冗長性は低くなっています。パーシャル、レイアウト、セクション、そしてタグやフォームのための幅広いHTMLヘルパーを提供し、明示的かつ簡潔なエスケープが可能です。</p>
@@ -187,8 +187,27 @@
 
         </div>
         <div class="col-md-2"></div>
-    </div>
 </div>
+</div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const navigatorLanguages = window.navigator.languages;
+        const locales = (navigatorLanguages && navigatorLanguages.length)
+            ? navigatorLanguages
+            : [window.navigator.language ?? ''];
+        const prefersJapanese = locales.some((locale) => locale.toLowerCase().startsWith('ja'));
+
+        for (const link of document.querySelectorAll('[data-auto-locale-href-en][data-auto-locale-href-ja]')) {
+            const href = prefersJapanese
+                ? link.getAttribute('data-auto-locale-href-ja')
+                : link.getAttribute('data-auto-locale-href-en');
+            if (href) {
+                link.setAttribute('href', href);
+            }
+        }
+    });
+</script>
 
 <footer>
     <div id="copyright">
